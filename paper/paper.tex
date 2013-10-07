@@ -1,0 +1,106 @@
+\section{Introduction}
+
+The complexity of a change can be very different from the complexity of the
+files or system that contain a change (e.g., a change to many simple files
+might be as complex as a change to one difficult file). Change complexity is
+related to, ``how hard is it to understand and review a change" vs system
+complexity, which measures for example, "how hard is it to understand and
+potentially modify the system". 
+
+Traditional complexity measures (\eg McCabe) are normed on or require a whole
+file or system and were not designed to measure the complexity of changes and
+code fragments. The goal of this paper is to evaluate which measures are the
+best indicators of the complexity the changes to an evolving system. 
+
+
+\textbf{We have the following research questions:}
+
+\begin{enumerate}
+
+\item Does the difference of traditional complexity measures before and after a change correlate with change complexity measures?
+
+\item Does the weighted sum of change complexity measures up to a version correlated with the traditional complexity measures at that version? 
+
+\end{enumerate}
+
+\section{Background and Measures}
+
+\subsection{Traditional Measures}
+TODO Describe in a few paragraphs each of the following metrics ...
+
+McCabe etc
+
+\subsection{Change Complexity Measures}
+
+Each change is calcuated on the difference between two versions of a file.
+%
+All of our measures are based upon the premise that changes that are farther
+from each other or involve multiple entities are more complex than those closer
+together involving fewer entities. 
+%
+In total, we measure change complexity in seven ways:
+
+\begin{itemize}
+
+\item  the churn or change size, 
+
+\item the number of modified files per commit,
+
+\item the number of diffs per commit, 
+
+\item the number of and distance between contiguous change blocks within a diff
+(\ie hunks), 
+
+\item the directory distance between files, and 
+
+\item depth of indentation of a change. 
+
+\end{itemize}
+
+%
+Since the goal of each measure is the same, to assess the complexity of a
+change, we expect some of our measures to be highly correlated. 
+%we want the simpliest most parsimonious measures. 
+In the interest of parsimony, we will select the simplest set of measures that
+adequately captures change complexity. 
+
+{\bf Files and diffs:} we count the number of files contained in a commit. The more files that change, the larger the affect proportion of the system. Commits with a large number of files will likely be difficult to understand. 
+
+{\bf Change blocks:} we measure the number of contiguous change blocks, or
+hunks, and the distance between these blocks in a modified file and sum them
+across the entire review.  Contiguous changes  are likely easier to review than
+changes that are far apart and that are potentially in multiple functions
+within a file.  
+
+{\bf Directory distance:} we measure the directory distance between the files
+in a commit. The premise for this measure is that files that perform similar
+functions are typically closer in the directory hierarchy than files that
+perform dissimilar functions~\cite{Bowman1999ICSE}, thus the directory
+structure loosely mirrors the system architecture~\cite{RigbySubTOSEM}. The
+distance of two files in the same directory have a distance of zero, while the
+distance for files in different directories is the number of directories
+between the two files in the directory hierarchy.  We expect that changes that
+involve files that are far apart will crosscut the functionality of a system
+and be more complex to review.
+
+{\bf Indentation:} Hindle \etal \cite{Hindle2008ICPC} created a complexity
+measure that can be used to measure the complexity of the entire system or of a
+change by examining the level of indentation on source lines. We calculate
+their measure for reviews. They found that the strongest predictors of
+complexity were the sum and standard deviation of the indentation of source
+lines. 
+
+%TODO weighted number of people who changed a file?
+
+\section{Methodology and Data}
+
+TODO: this is where you put your figure and discription
+
+
+\section{Results}
+
+In this section, we compare how correlated each measure is to each other.
+
+\section{Threats to validity}
+
+\section{Conclusion}
