@@ -1,0 +1,10 @@
+All measures are calculated at a particular commit (aka a version)
+
+cmetrics (don't have this table, but could get it if necessary): cmetrics for each file
+cmetrics_sum: sum of all the cmetrics for that version so sum(LOC) = sum of all the lines of code in each file (or the size of the system in LOC)
+cmetrics_change: sum of all the cmetrics for that version, but only on files that changed
+cmetrics_dif: the difference between the two versions for each cmetric sum(LOC) at V2 - sum(LOC) at V1 (not it's based on cmetrics_sum) 
+
+change_complexity: change measures at each commit
+change_complexity_decay_1000: sum of change measure for the last 1000 commits
+
