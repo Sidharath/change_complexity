@@ -1,4 +1,4 @@
-\documentclass[11pt,twocolumn,a4paper]{article}
+\documentclass[8pt,twocolumn,a4paper]{article}
 \usepackage{amssymb, amsmath,graphicx,soul,color}
 
 \newcommand*{\eg}{e.g. }
@@ -34,9 +34,7 @@ best indicators of the complexity the changes to an evolving system.
 
 \section{Background and Measures}
 
-\subsection{Traditional Measures}
-TODO Describe in a few paragraphs each of the following metrics ...
-
+\subsection{Traditional Complexity Measures}
 
 \begin{enumerate}
 \item{\bf{Source Line of Code: }} To define SLOC we use the definition given by Conte [Conte 1986]:
@@ -122,13 +120,24 @@ lines.
 
 \section{Methodology and Data}
 
-\hl{TODO: this is where you put your figure and discription}
+
+In figure 1 we illustrate a hypothetical system which undergoes numerous changes. The vertical lines represent each version. During each version's development, the change complexity measures are assessed. In between versions, traditional complexity measures are computed. These are denoted by CCM and TCM respectively.
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.5\textwidth]{change_complexity_figure}
+ %  \includegraphics[width=0.5\textwidth]{change_complexity_figure}
    \caption{"Change Complexity vs. Traditional Complexity"}
 \end{figure}
+
+\begin{equation}
+{{CCM_{v}(i)} \sim {TCM_{v(i+1)}}-{TCM_{v(i)}}}
+\end{equation}
+
+\begin{equation}
+{{TCM_{v(i+1)}} \sum\limits_{i=0}^iCCM_{v(i)}}
+\end{equation}
+ 
+
 
 \section{Results}
 
