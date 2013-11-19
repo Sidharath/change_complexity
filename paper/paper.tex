@@ -35,15 +35,30 @@ best indicators of the complexity the changes to an evolving system.
 \section{Background and Measures}
 
 \subsection{Traditional Complexity Measures}
-
+{\bf{\emph{Metrics Related to Lines of Code}}}
+\newline
 \begin{enumerate}
-\item{\bf{Source Line of Code: }} To define SLOC we use the definition given by Conte [Conte 1986]:
+
+\item{\bf{Source Line of Code(SLOC): }} To define SLOC we use the definition given by Conte [Conte 1986]:
 A line of code is any line of program text that is not a comment or blank line, regardless of the
 number of statements or fragments of statements on the line. This specifically includes all lines containing program headers, declarations, and executable and non-executable statements.
 
 \item{\bf{Lines of Code (LOC): }} Lines of code refers to the total number of lines in each source code file including comments and blank lines. It is a straightforward measure and can be calculated using many available tools.
 
-\item{\bf{McCabe's Cyclomatic Complexity: }}
+
+\item{\bf{BLANK: }}Blank is a count of the number of blank lines.
+
+\item{\bf{COM.L: }}Number of lines that are exclusively comments (no code).
+
+\item{\bf{COM.N: }} Number of comments in the file (a comment can be multiline).
+\end{enumerate}
+
+
+{\bf{\emph{Metrics Related to Complexity}}}
+\newline
+
+{\bf{McCabe's Cyclomatic Complexity}}\newline
+
 McCabe’s Cyclomatic complexity is one of the earliest complexity measures developed by Thomas J. McCabe in 1976. It directly measures the number of linearly independent paths through a program's source code. Any program can be represented as a graph with the simplest element being a flat series of statements with no conditions, loops or branches. [1] For a graph $G$ with $n$ vertices, $e$ edges and $p$ exit points, the complexity $v$ is defined as follows:
 
 \begin{equation}
@@ -51,11 +66,28 @@ v(G)=e-n+2p
 \end{equation}
 
 It is worth mentioning that the minimum value for the cyclomatic complexity metric is 1, which corresponds to the flat series of statements with no bifurcations or loops. Every additional region in the flow graph would increase the Cyclomatic complexity by one unit.
+\begin{enumerate}
+\item{\bf{ (TOTCY)}}: Total McCabe's cyclomatic complexity (sum of all functions)
+\item{\bf{MAXCY: }} Maximum McCabe’s cyclomatic complexity. (between all functions).
+
+\item{\bf{MINCY: }} Minimum McCabe’s cyclomatic complexity.
+\item{\bf{AVGCY: }} Average McCabe’s cyclomatic complexity.
+\item{\bf{MEDCY: }} Median McCabe’s cyclomatic complexity.
+
+{\bf{Halstead's Complexity Measures}}
+
+Halstead’s complexity metrics rely on the assumption that programs should be viewed as expressions of languages both programming and written. It relies on the premise that there are mathematically sound relationships among the number of variables, the complexity of the code and the type of programming language statements used.
+
+\item{\bf{H.LEN: }}Halstead’s length.
+\item{\bf{H.VOL: }}Halstead's volume.
+
+\item{\bf{H.LEVEL: }}Halstead’s level.
+
+\item{\bf{H MEN.D: }}Halstead’s number of mental discriminations.
 
 
 
 \end{enumerate}
-
 
 \subsection{Change Complexity Measures}
 
