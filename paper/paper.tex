@@ -1,6 +1,7 @@
 \documentclass[9pt,twocolumn,a4paper]{article}
 \usepackage{amssymb,amsmath,graphicx,soul,color,indentfirst}
 \usepackage[affil-it]{authblk}
+\usepackage[T1]{fontenc}
 
 
 
@@ -17,13 +18,16 @@
  Montreal, Canada}
 
 \date{}
-\title{Software Complexities: Do System and Change Complexity Relate?}
+\title{\bf{Software Complexities: Do System and Change Complexity Relate?}}
 
 
 
 
 \maketitle
 \section{Abstract}
+{\em System complexity is a term that encompasses the internal interations of a software and describes them. As the number of these entities increase, the number of interactions would exponentially increase leading to an unmanageable complexity. On the other hand, change complexity encompasses the artifacts that make up a single change such as diffs, patches and revisions. To see how well these two measures relate, we extracted data from the Apache HTTP Server Open Source Project and calculated the correlations between pairs of metrics. Upon completion of the analysis, we found that system and change complexity metrics correlate poorly. This is due to the fact that they exclusively measure different things.
+
+}
 \section{Introduction}
 
 Traditional complexity measures are normalized on or require a whole file or system and were not designed to measure the complexity of code fragments. Therefor, the complexity of a change can be very different from the complexity of the files or system that contain a change (e.g a change to many simple files might be as complex as a change to one difficult file). Change complexity is related to, ``how hard is it to understand and review a change" vs system complexity, which measures for example, "how hard is it to understand and potentially modify the system". Traditional complexity measures do not really measure the complexity of the system but simply the size of the files that make up the system. As a result, they do not add any additional information beyond how large a file is. In contrast, all of the change complexity measures are based upon the notion that changes that are farther from each other or involve multiple entities are more complex than those closer together involving fewer entities. The goal of this paper is to evaluate the correlation between system complexity measures and change complexity measures of an evolving system. 
@@ -41,10 +45,12 @@ Traditional complexity measures are normalized on or require a whole file or sys
 
 \end{enumerate}
 
+The rest of the paper is organized as follows: Section 3 describes the background and motivation of this work. Section 4 describes the method and data used. Section 5 and 6 present the results and discussion as well as threats to validity. Section 7 is the conclusion and finally in section 8, we describe potential future work.
+
 \section{Background and Motivation}
 
-Traditional complexity metrics require the system as a whole and were not designed to measure the complexity of code fragments. McCabe’s metrics directly measures the number of linearly independent paths through a program's source code. Syntactic complexity metrics that are exclusively based on the structure of the program and the properties of the text (for example, redundancy of operators and operands, as Halstead’s metrics do), do not add any more information than lines of code do. [Isreal]. Furthermore, multiple studies have shown that these measures correlate very strongly with lines of code and may not provide additional information about the complexity of the system. [54,85,61].
-As previously stated, measuring the complexity of a change differs from measuring an entire system. For example, a change to numerous simple functions across multiple files may be as difficult as changing the code contained within a single complex function. [Peter].
+Traditional complexity metrics require the system as a whole and were not designed to measure the complexity of code fragments. McCabe's metrics directly measures the number of linearly independent paths through a program's source code. Syntactic complexity metrics that are exclusively based on the structure of the program and the properties of the text (for example, redundancy of operators and operands, as Halstead's metrics do), do not add any more information than lines of code do \cite {Israel}. Furthermore, multiple studies have shown that these measures correlate very strongly with lines of code and may not provide additional information about the complexity of the system. \cite {Graves, Leszak, Herraiz}.
+As previously stated, measuring the complexity of a change differs from measuring an entire system. For example, a change to numerous simple functions across multiple files may be as difficult as changing the code contained within a single complex function \cite{Peter}.
 In this section, we provide a background on the various measures of system and change complexity.
 
 
@@ -58,11 +64,11 @@ In this section, we provide a background on the various measures of system and c
 \item{\bf{Lines of Code (LOC): }} Lines of code refers to the total number of lines in each source code file including comments and blank lines
 
 
-\item{\bf{BLANK: }}Blank is a count of the number of blank lines.
+\item{\bf{\textsc{Blank: }}}Blank is a count of the number of blank lines.
 
-\item{\bf{COM.L: }}Number of lines that are exclusively comments (no code).
+\item{\bf{\textsc{Com.l: }}}Number of lines that are exclusively comments (no code).
 
-\item{\bf{COM.N: }} Number of comments in the file (a comment can be multiline).
+\item{\bf{\textsc{Com.n: }}} Number of comments in the file (a comment can be multiline).
 \end{enumerate}
 
 
@@ -71,7 +77,7 @@ In this section, we provide a background on the various measures of system and c
 
 {\bf{McCabe's Cyclomatic Complexity}}\newline
 
-McCabe’s Cyclomatic complexity is one of the earliest complexity measures developed by Thomas J. McCabe in 1976. It directly measures the number of linearly independent paths through a program's source code. Any program can be represented as a graph with the simplest element being a flat series of statements with no conditions, loops or branches. [Isreal] For a graph $G$ with $n$ vertices, $e$ edges and $p$ exit points, the complexity $v$ is defined as follows:
+McCabe's Cyclomatic complexity is one of the earliest complexity measures developed by Thomas J. McCabe in 1976. It directly measures the number of linearly independent paths through a program's source code. Any program can be represented as a graph with the simplest element being a flat series of statements with no conditions, loops or branches \cite{Israel}. For a graph $G$ with $n$ vertices, $e$ edges and $p$ exit points, the complexity $v$ is defined as follows:
 
 \begin{equation}
 v(G)=e-n+2p
@@ -79,23 +85,23 @@ v(G)=e-n+2p
 
 It is worth mentioning that the minimum value for the cyclomatic complexity metric is 1, which corresponds to the flat series of statements with no bifurcations or loops. Every additional region in the flow graph would increase the Cyclomatic complexity by one unit.
 \begin{enumerate}
-\item{\bf{ (TOTCY)}}: Total McCabe's cyclomatic complexity (sum of all functions)
-\item{\bf{MAXCY: }} Maximum McCabe’s cyclomatic complexity. (between all functions).
+\item{\bf{\textsc{Totcy}}} Total McCabe's cyclomatic complexity (sum of all functions)
+\item{\bf{\textsc{Maxcy}}} Maximum McCabe's cyclomatic complexity. (between all functions).
 
-\item{\bf{MINCY: }} Minimum McCabe’s cyclomatic complexity.
-\item{\bf{AVGCY: }} Average McCabe’s cyclomatic complexity.
-\item{\bf{MEDCY: }} Median McCabe’s cyclomatic complexity.
+\item{\bf{\textsc{Mincy}}} Minimum McCabe's cyclomatic complexity.
+\item{\bf{\textsc{Avgcy}}} Average McCabe's cyclomatic complexity.
+\item{\bf{\textsc{Medcy}}} Median McCabe's cyclomatic complexity.
 
 {\bf{Halstead's Complexity Measures}}
 
-Halstead’s complexity metrics rely on the idea that programs should be viewed as expressions of languages both programming and written. It relies on the premise that there are mathematically sound relationships among the number of variables, the complexity of the code and the type of programming language statements used.
+Halstead's complexity metrics rely on the idea that programs should be viewed as expressions of languages both programming and written. It relies on the premise that there are mathematically sound relationships among the number of variables, the complexity of the code and the type of programming language statements used.
 
-\item{\bf{H.LEN: }}Halstead’s length.
-\item{\bf{H.VOL: }}Halstead's volume.
+\item{\bf{\textsc{Hlen}}} Halstead's length.
+\item{\bf{\textsc{Hvol}}} Halstead's volume.
 
-\item{\bf{H.LEVEL: }}Halstead’s level.
+\item{\bf{\textsc{Hlevel}}} Halstead's level.
 
-\item{\bf{H MEN.D: }}Halstead’s number of mental discriminations.
+\item{\bf{\textsc{H.Men.D}}} Halstead's number of mental discriminations.
 
 
 
@@ -111,7 +117,7 @@ Since the goal of each measure is the same, to assess the complexity of a change
 
 \item{\bf{Change blocks (Hunks)}}: We measure the number of contiguous change blocks, or hunks, and the distance between these blocks in a modified file and sum them across the entire review. Contiguous changes are likely easier to review than changes that are further apart and that are potentially in multiple functions within a file.
 
-\item{\bf{Indentation: [Hindle2008ICPC]}} creates a complexity measure that can be used to measure the complexity of the entire system or of a change by examining the level of indentation on source lines. We calculate their measure for reviews. They found that the strongest predictors of complexity were the sum and standard deviation of the indentation of source lines.
+\item{\bf{Indentation}}: Hindle {\em {et al.}} \cite{Hindle} created a complexity measure that can be used to measure the complexity of the entire system or of a change by examining the level of indentation on source lines. We calculate their measure for reviews. They found that the strongest predictors of complexity were the sum and standard deviation of the indentation of source lines.
 
 \end{enumerate}
 
@@ -121,15 +127,16 @@ Since the goal of each measure is the same, to assess the complexity of a change
 \section{Methodology and Data}
 
 A quantitative research methodology was used for this empirical study where the objective was to develop models pertaining to our research questions. The choice of this method is key as it provides a connection between the empirical observation and mathematical expressions of the quantitative relationships. 
-The data used for this study was provided by Dr. Peter Rigby, namely from the Apache HTTP Server Project written in C. All measures were calculated at a particular version (commit) and the data was retrieved from June 18, 1999 – March 3, 2011; that is during a 12 year time period. SQL scripts were written to extract data of system and change complexity measure that answer each of the research questions using PostgreSQL 9.3. The resulting data was then imported into RStudio for further analysis. Finally, Spearman’s rank correlation coefficient matrix was deduced for each measure. 
+The data used for this study was provided by Dr. Peter Rigby, namely from the Apache HTTP Server Project written in C. All measures were calculated at a particular version (commit) and the data was retrieved from June 18, 1999 - March 3, 2011; that is during a 12 year time period.However, no further information is given if this data includes header files or not. SQL scripts were written to extract data of system and change complexity measure that answer each of the research questions using PostgreSQL 9.3. The resulting data was then imported into RStudio for further analysis. Finally, Spearman's rank correlation coefficient matrix was deduced for each measure. 
 
 
-In figure 1 we illustrate a hypothetical system which undergoes numerous changes. The vertical lines represent each version. During each version's development, the change complexity measures are assessed. In between versions, traditional complexity measures are computed. These are denoted by CCM and TCM respectively.
+In figure \ref{fig:ccVstc} we illustrate a system which undergoes numerous changes. The vertical lines represent each version. During each version's development, the change complexity measures are assessed. In between versions, traditional complexity measures are computed. These are denoted by CCM and TCM respectively.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.5\textwidth]{change_complexity_figure}
    \caption{"Change Complexity vs. Traditional Complexity"}
+   \label{fig:ccVstc}
 \end{figure}
 
 \begin{equation}
@@ -146,7 +153,7 @@ In figure 1 we illustrate a hypothetical system which undergoes numerous changes
 
 \section{Results and Discussion}
 
-It has been previously shown that Halstead’s length, volume, level and mental discriminations all correlate highly with each other [Israel], so it is safe to select hlen only of these metrics. Maxcy and sloc have also shown to correlate highly with each other so Maxcy has been chosen. Total cyclomatic complexity has been also added as it provides the complexity measure for the sum of all functions. Finally, loc has been included as it’s a measure of all text lines in the code. For measures pertaining to change complexity, we have chosen the simplest ones that adequately capture change complexity. 
+It has been previously shown that Halstead's length, volume, level and mental discriminations all correlate highly with each other \cite{Israel}, so it is safe to select hlen only of these metrics. Maxcy and sloc have also shown to correlate highly with each other so Maxcy has been chosen. Total cyclomatic complexity has been also added as it provides the complexity measure for the sum of all functions. Finally, loc has been included as it is a measure of all text lines in the code. For measures pertaining to change complexity, we have chosen the simplest ones that adequately capture change complexity. 
 \newline
 
 {\bf{\emph Q1) Does the difference of traditional complexity measures before and after a change correlate with change complexity measures?}}
@@ -173,13 +180,14 @@ mods & 1.00 & 0.65 & 0.85 & 0.30 & 0.26 & 0.23 & 0.26 \\
    \hline
 \end{tabular}}
 \caption {\small Correlation Matrix of Research Question 1.}
-\label{tab:title} 
+\label{tab:table1} 
+
 \end{table}
 
 {\bf{\emph Q2)Does the weighted sum of change complexity measures up to a version correlated with the traditional complexity measures at that version? }}
 \newline
 
-We measured the last 1000 commits’ weighted sum of change complexity measures up to a single version and compared it with the traditional complexity measures of that version. By looking at the results in the following table, we can see that change complexity measures correlated negatively with traditional complexity measures.
+We measured the last 1000 commits' weighted sum of change complexity measures up to a single version and compared it with the traditional complexity measures of that version. By looking at the results in the following table, we can see that change complexity measures correlated negatively with traditional complexity measures.
 \newline
 
 \begin{table}[ht]
@@ -199,14 +207,14 @@ mods & 1.00 & 0.25 & 0.96 & -0.23 & -0.21 & -0.38 & -0.36 \\
    \hline
 \end{tabular}}
 \caption {\small Correlation Matrix of Research Question 2.}
-\label{tab:title} 
+\label{tab:table2} 
 \end{table}
 
 
 {\bf{\emph Q3)Do the traditional measures calculated on only the files that had changed at a certain commit correlate with the change complexity measures at the last 1000 changes?}}
 \newline
 
-To answer the third research question, first we identified the files that have undergone changes in a version and extracted the traditional measures for them. Then, we measured the change complexity measures for the last 1000 changes and compared these two measures.  Table 3 (???) shows the correlation matrix which shows that there is a very poor correlation between the change complexity measures and traditional complexity measures (\textless 0.3).
+To answer the third research question, first we identified the files that have undergone changes in a version and extracted the traditional measures for them. Then, we measured the change complexity measures for the last 1000 changes and compared these two measures.  Table \ref{tab:table3} shows the correlation matrix which shows that there is a very poor correlation between the change complexity measures and traditional complexity measures (\textless 0.3).
 
 \begin{table}[ht]
 
@@ -226,16 +234,56 @@ mods & 1.00 & 0.66 & 0.86 & 0.23 & 0.23 & 0.21 & 0.23 \\
    \hline
 \end{tabular}}
 \caption {\small Correlation Matrix of Research Question 3.}
-\label{tab:title} 
+
+\label{tab:table3} 
 \end{table}
 
-
+From the previous results we have identified that traditional and change complexity measures correlate very poorly. This is due to the nature of how these measurements are extracted and what they concretely measure. For example, change complexity measures are extracted from diffs, revisions and patches as opposed to traditional complexity measures, which are extracted from the source code as a whole \cite{Hindle}. We can therefor explain the poor correlation with the fact that these two complexity metrics measure different things
 
 
 \section{Threats to validity}
-
+In our study we calculated the complexity measures on each particular commits (aka. each version), however the correlation between traditional complexity measures in Israel's study \cite{Israel} was done at a file level. Israel also made account of the confounding effect of file size. The result was that even though file size influences the values of the correlations, it does not substantially change the conclusion extracted from those correlations in any case. Therefor, in order to rule out this effect, the total size of the system must be taken into consideration. Another threat to validity is the source of inconsistencies in measuring traditional complexity metrics between header files and non-header files.
 \section{Conclusion}
 
-Future work: Does McCabe predict anything? Do the change complexity measures do a better job of prediction?
+In this work we have chosen the Apache HTTP Server Open Source Project and extracted data related to traditional and change complexity measures within a 12-year period. We have shown that these two measures correlate poorly because they measure different things in different contexts.
 
+\section{Future Work}
+Future research directions include using traditional and change complexity metrics as an indication of the maintainability and evolvability of a system; such as productivity and number of bugs.
+
+\begin{thebibliography}{9}
+
+\bibitem{Israel}
+I. Herraiz, A. Hassan  {\em Beyond Lines of Code: Do We Need More Complexity Metrics?} Making Software. Greg Wilson and Andy Oram,
+  O'Reilly Media, Inc., 
+  2010.
+  
+\bibitem{Peter}
+P. Rigby (2011), {\em Understanding Open Source Software Peer Review:
+Review Processes, Parameters and Statistical Models, and
+Underlying Behaviours and Mechanisms.},  
+Ph.D. Thesis. University of Victoria, Canada.
+
+\bibitem{Hindle}
+A. Hindle, M. W. Godfrey, R. C. Holt. {\em Reading Beside the Lines: Indentation as a Proxy for Complexity Metrics.} In ICPC: Proceedings of the 16th IEEE International
+Conference on Program Comprehension, pages 133-142. IEEE Computer Society,
+2008.
+
+
+\bibitem{Graves}
+T. L. Graves, A. F. Karr, J. S. Marron, and H. Siy. {\em Predicting fault incidence using
+software change history.} IEEE Trans. Softw. Eng., 26(7):653-661, 2000.
+
+\bibitem{Leszak}
+M. Leszak, D. E. Perry, and D. Stoll. { \em Classification and evaluation of defects in a
+project retrospective.} Journal of Systems and Software, 61(3):173-187, 2002.
+
+\bibitem{Herraiz}
+I. Herraiz, J. M. Gonzalez-Barahona, and G. Robles. { \em Towards a theoretical model
+for software growth.} In MSR: Proceedings of the Fourth International Workshop on
+Mining Software Repositories, pages 21-28. IEEE Computer Society, 2007.
+
+
+
+
+\end{thebibliography}
 \end{document}
