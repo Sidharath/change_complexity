@@ -13,7 +13,7 @@
 \begin{document}
 
 \author{Aldosary, Buthainah\\
-\texttt{aldosa@encs.concordia.ca}}
+\texttt{b_aldosa@encs.concordia.ca}}
 \affil{Concordia University\\
  Montreal, Canada}
 
@@ -127,7 +127,7 @@ Since the goal of each measure is the same, to assess the complexity of a change
 \section{Methodology and Data}
 
 A quantitative research methodology was used for this empirical study where the objective was to develop models pertaining to our research questions. The choice of this method is key as it provides a connection between the empirical observation and mathematical expressions of the quantitative relationships. 
-The data used for this study was provided by Dr. Peter Rigby, namely from the Apache HTTP Server Project written in C. All measures were calculated at a particular version (commit) and the data was retrieved from June 18, 1999 - March 3, 2011; that is during a 12 year time period.However, no further information is given if this data includes header files or not. SQL scripts were written to extract data of system and change complexity measure that answer each of the research questions using PostgreSQL 9.3. The resulting data was then imported into RStudio for further analysis. Finally, Spearman's rank correlation coefficient matrix was deduced for each measure. 
+The data used for this study was provided by Dr. Peter Rigby, namely from the Apache HTTP Server Project written in C. All measures were calculated at a particular version (commit) and the data was retrieved from June 18, 1999 - March 3, 2011; that is during a 12 year time period. However, no further information is given if this data includes header files or not. SQL scripts were written to extract data of system and change complexity measure that answer each of the research questions using PostgreSQL 9.3. The resulting data was then imported into RStudio for further analysis. Finally, Spearman's rank correlation coefficient matrix was deduced to answer each of our research questions. 
 
 
 In figure \ref{fig:ccVstc} we illustrate a system which undergoes numerous changes. The vertical lines represent each version. During each version's development, the change complexity measures are assessed. In between versions, traditional complexity measures are computed. These are denoted by CCM and TCM respectively.
@@ -138,6 +138,8 @@ In figure \ref{fig:ccVstc} we illustrate a system which undergoes numerous chang
    \caption{"Change Complexity vs. Traditional Complexity"}
    \label{fig:ccVstc}
 \end{figure}
+
+
 
 \begin{equation}
 {{CCM_{v(i)}} = {TCM_{v(i+1)}}-{TCM_{v(i)}}}
@@ -240,6 +242,29 @@ mods & 1.00 & 0.66 & 0.86 & 0.23 & 0.23 & 0.21 & 0.23 \\
 
 From the previous results we have identified that traditional and change complexity measures correlate very poorly. This is due to the nature of how these measurements are extracted and what they concretely measure. For example, change complexity measures are extracted from diffs, revisions and patches as opposed to traditional complexity measures, which are extracted from the source code as a whole \cite{Hindle}. We can therefor explain the poor correlation with the fact that these two complexity metrics measure different things
 
+%Traditional Complexity timeseries
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{TradComplexityMeasuresPlot}
+   \caption{Traditional Complexity Measures Timeseries }
+   \label{fig:tct}
+\end{figure}
+
+%Change Complexity timeseries
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{ChangeComplexMeasuresPlot}
+   \caption{Change Complexity Measures Timeseries }
+   \label{fig:cct}
+\end{figure}
+
+%Change and Traditional Complexity timeseries
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{ChangeandTradPlot}
+   \caption{Traditional and Change Complexity Measures Timeseries }
+   \label{fig:TandCCT}
+\end{figure}
 
 \section{Threats to validity}
 In our study we calculated the complexity measures on each particular commits (aka. each version), however the correlation between traditional complexity measures in Israel's study \cite{Israel} was done at a file level. Israel also made account of the confounding effect of file size. The result was that even though file size influences the values of the correlations, it does not substantially change the conclusion extracted from those correlations in any case. Therefor, in order to rule out this effect, the total size of the system must be taken into consideration. Another threat to validity is the source of inconsistencies in measuring traditional complexity metrics between header files and non-header files.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  12 DEC 2013 20:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  18 DEC 2013 03:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -166,7 +166,7 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 LaTeX Warning: Unused global option(s):
     [9pt].
 
-(./paper.aux)
+No file paper.aux.
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -181,7 +181,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
-
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count103
@@ -252,6 +251,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
  []
 
+
+LaTeX Warning: Citation `Israel' on page 1 undefined on input line 52.
+
+
+LaTeX Warning: Citation `Graves' on page 1 undefined on input line 52.
+
+
+LaTeX Warning: Citation `Leszak' on page 1 undefined on input line 52.
+
+
+LaTeX Warning: Citation `Herraiz' on page 1 undefined on input line 52.
+
+
+LaTeX Warning: Citation `Peter' on page 1 undefined on input line 53.
+
 [1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
@@ -270,6 +284,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
+
+LaTeX Warning: Citation `Israel' on page 2 undefined on input line 80.
+
 LaTeX Font Info:    Try loading font information for U+msa on input line 80.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -283,7 +300,14 @@ Underfull \hbox (badness 4954) in paragraph at lines 89--90
 []\T1/cmr/bx/sc/10 Maxcy \T1/cmr/m/n/10 Max-i-mum Mc-Cabe's cy-clo-matic
  []
 
-[2] <change_complexity_figure.png, id=23, 858.20625pt x 341.275pt>
+[2]
+
+LaTeX Warning: Citation `Hindle' on page 3 undefined on input line 120.
+
+
+LaTeX Warning: Reference `fig:ccVstc' on page 3 undefined on input line 133.
+
+<change_complexity_figure.png, id=23, 858.20625pt x 341.275pt>
 File: change_complexity_figure.png Graphic file (type png)
 
 <use change_complexity_figure.png>
@@ -293,6 +317,9 @@ Package pdftex.def Info: change_complexity_figure.png used on input line 137.
 Overfull \hbox (5.0pt too wide) in paragraph at lines 137--138
  [][] 
  []
+
+
+LaTeX Warning: Citation `Israel' on page 3 undefined on input line 156.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 156--158
@@ -360,42 +387,107 @@ Underfull \hbox (badness 10000) in paragraph at lines 214--216
  []
 
 
+LaTeX Warning: Reference `tab:table3' on page 4 undefined on input line 217.
+
+
 Overfull \hbox (6.62183pt too wide) in paragraph at lines 222--236
  [][] 
  []
 
-[4] [5] (./paper.aux) ) 
+
+LaTeX Warning: Citation `Hindle' on page 4 undefined on input line 241.
+
+<TradComplexityMeasuresPlot.jpeg, id=30, 662.475pt x 428.60126pt>
+File: TradComplexityMeasuresPlot.jpeg Graphic file (type jpg)
+
+<use TradComplexityMeasuresPlot.jpeg>
+Package pdftex.def Info: TradComplexityMeasuresPlot.jpeg used on input line 246
+.
+(pdftex.def)             Requested size: 226.0pt x 146.21298pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 246--247
+ [][] 
+ []
+
+<ChangeComplexMeasuresPlot.jpeg, id=31, 662.475pt x 428.60126pt>
+File: ChangeComplexMeasuresPlot.jpeg Graphic file (type jpg)
+
+<use ChangeComplexMeasuresPlot.jpeg>
+Package pdftex.def Info: ChangeComplexMeasuresPlot.jpeg used on input line 254.
+
+(pdftex.def)             Requested size: 226.0pt x 146.21298pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 254--255
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<ChangeandTradPlot.jpeg, id=32, 662.475pt x 428.60126pt>
+File: ChangeandTradPlot.jpeg Graphic file (type jpg)
+
+<use ChangeandTradPlot.jpeg>
+Package pdftex.def Info: ChangeandTradPlot.jpeg used on input line 262.
+(pdftex.def)             Requested size: 226.0pt x 146.21298pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 262--263
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Citation `Israel' on page 4 undefined on input line 268.
+
+
+Underfull \vbox (badness 3148) has occurred while \output is active []
+
+ [4 <./TradComplexityMeasuresPlot.jpeg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5 <./ChangeComplexMeasuresPlot.jpeg> <./ChangeandTradPlot.jpeg>] [6
+
+] (./paper.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2908 strings out of 493315
- 37658 string characters out of 6137904
- 110294 words of memory out of 5000000
- 6304 multiletter control sequences out of 15000+600000
+ 2927 strings out of 493315
+ 38151 string characters out of 6137904
+ 110244 words of memory out of 5000000
+ 6319 multiletter control sequences out of 15000+600000
  15657 words of font info for 37 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,9n,26p,1169b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-s
-uper/cm-super-t1.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbi
-1000.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx10
-00.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1200
-.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1440.p
-fb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb
-></usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><
-/usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></u
-sr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr
-/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/l
-ocal/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/loc
-al/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/local
-/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb>
-Output written on paper.pdf (5 pages, 307712 bytes).
+{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loc
+al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/
+texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/te
+xlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texliv
+e/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2013/t
+exmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2013/texmf
+-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/local/texlive/2013/texmf-d
+ist/fonts/type1/public/cm-super/sfxc1000.pfb>
+Output written on paper.pdf (6 pages, 419298 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
