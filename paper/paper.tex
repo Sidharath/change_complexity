@@ -13,7 +13,7 @@
 \begin{document}
 
 \author{Aldosary, Buthainah\\
-\texttt{b_aldosa@encs.concordia.ca}}
+\texttt{aldosa@encs.concordia.ca}}
 \affil{Concordia University\\
  Montreal, Canada}
 
@@ -130,7 +130,8 @@ A quantitative research methodology was used for this empirical study where the 
 The data used for this study was provided by Dr. Peter Rigby, namely from the Apache HTTP Server Project written in C. All measures were calculated at a particular version (commit) and the data was retrieved from June 18, 1999 - March 3, 2011; that is during a 12 year time period. However, no further information is given if this data includes header files or not. SQL scripts were written to extract data of system and change complexity measure that answer each of the research questions using PostgreSQL 9.3. The resulting data was then imported into RStudio for further analysis. Finally, Spearman's rank correlation coefficient matrix was deduced to answer each of our research questions. 
 
 
-In figure \ref{fig:ccVstc} we illustrate a system which undergoes numerous changes. The vertical lines represent each version. During each version's development, the change complexity measures are assessed. In between versions, traditional complexity measures are computed. These are denoted by CCM and TCM respectively.
+In figure \ref{fig:ccVstc} we illustrate a system which undergoes numerous changes. The vertical lines represent each version. During each version's development, the change complexity measures are assessed. In between versions, traditional complexity measures are computed. These are denoted by CCM and TCM respectively. To answer our research questions, for example at version 3, we want to see if \textsc{ ccm(v3)= tcm(v4)-tcm(v3)} (\ref{eq:Eq2}), \textsc {tcm(v4)=ccm(v1)+ccm(v2)+ccm(v3)
+} (\ref{eq:Eq3}), finally we want to see if \textsc {tcm(v3)=ccm(v3)} for the last 1000 commits (\ref{eq:Eq4}).
 
 \begin{figure}[h!]
   \centering
@@ -141,15 +142,15 @@ In figure \ref{fig:ccVstc} we illustrate a system which undergoes numerous chang
 
 
 
-\begin{equation}
+\begin{equation} \label{eq:Eq2}
 {{CCM_{v(i)}} = {TCM_{v(i+1)}}-{TCM_{v(i)}}}
 \end{equation}
 
-\begin{equation}
+\begin{equation} \label{eq:Eq3}
 {{TCM_{v(i+1)}} = \sum\limits_{i=0}^iCCM_{v(i)}}
 \end{equation}
  
-\begin{equation}
+\begin{equation}  \label{eq:Eq4}
 {{{TCM_{v(i)}} = CCM_{v(i)}}   _{n=1000}}
 \end{equation}
 
