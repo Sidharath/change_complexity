@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  18 DEC 2013 04:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  18 DEC 2013 19:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -364,57 +364,49 @@ Overfull \hbox (6.62183pt too wide) in paragraph at lines 225--239
  [][] 
  []
 
-<TradComplexityMeasuresPlot.jpeg, id=31, 662.475pt x 428.60126pt>
-File: TradComplexityMeasuresPlot.jpeg Graphic file (type jpg)
-
-<use TradComplexityMeasuresPlot.jpeg>
-Package pdftex.def Info: TradComplexityMeasuresPlot.jpeg used on input line 249
-.
+[4] <TradPlot.jpeg, id=35, 662.475pt x 428.60126pt>
+File: TradPlot.jpeg Graphic file (type jpg)
+ <use TradPlot.jpeg>
+Package pdftex.def Info: TradPlot.jpeg used on input line 255.
 (pdftex.def)             Requested size: 226.0pt x 146.21298pt.
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 249--250
+Overfull \hbox (5.0pt too wide) in paragraph at lines 255--256
  [][] 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<ChangeComplexMeasuresPlot.jpeg, id=32, 662.475pt x 428.60126pt>
-File: ChangeComplexMeasuresPlot.jpeg Graphic file (type jpg)
-
-<use ChangeComplexMeasuresPlot.jpeg>
-Package pdftex.def Info: ChangeComplexMeasuresPlot.jpeg used on input line 257.
-
+<ChangePlot.jpeg, id=36, 662.475pt x 428.60126pt>
+File: ChangePlot.jpeg Graphic file (type jpg)
+ <use ChangePlot.jpeg>
+Package pdftex.def Info: ChangePlot.jpeg used on input line 264.
 (pdftex.def)             Requested size: 226.0pt x 146.21298pt.
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 257--258
+Overfull \hbox (5.0pt too wide) in paragraph at lines 264--265
  [][] 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<ChangeandTradPlot.jpeg, id=33, 662.475pt x 428.60126pt>
+<ChangeandTradPlot.jpeg, id=37, 662.475pt x 428.60126pt>
 File: ChangeandTradPlot.jpeg Graphic file (type jpg)
 
 <use ChangeandTradPlot.jpeg>
-Package pdftex.def Info: ChangeandTradPlot.jpeg used on input line 265.
+Package pdftex.def Info: ChangeandTradPlot.jpeg used on input line 272.
 (pdftex.def)             Requested size: 226.0pt x 146.21298pt.
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 265--266
+Overfull \hbox (5.0pt too wide) in paragraph at lines 272--273
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4] [5 <./TradComplexityMeasuresPlot.jpeg> <./ChangeComplexMeasuresPlot.jpeg> <
-./ChangeandTradPlot.jpeg>] [6
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5 <./TradPlot.jpeg> <./ChangePlot.jpeg> <./ChangeandTradPlot.jpeg>] [6
 
 ] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
  2934 strings out of 493315
- 38217 string characters out of 6137904
+ 38052 string characters out of 6137904
  110342 words of memory out of 5000000
  6323 multiletter control sequences out of 15000+600000
  16330 words of font info for 38 fonts, out of 8000000 for 9000
@@ -440,7 +432,7 @@ exlive/2013/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/tex
 live/2013/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texli
 ve/2013/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/local/texlive
 /2013/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb>
-Output written on paper.pdf (6 pages, 428450 bytes).
+Output written on paper.pdf (6 pages, 431319 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  72 compressed objects within 1 object stream

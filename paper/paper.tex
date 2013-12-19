@@ -13,7 +13,7 @@
 \begin{document}
 
 \author{Aldosary, Buthainah\\
-\texttt{aldosa@encs.concordia.ca}}
+\texttt{b\_aldosa@encs.concordia.ca}}
 \affil{Concordia University\\
  Montreal, Canada}
 
@@ -122,7 +122,7 @@ Since the goal of each measure is the same, to assess the complexity of a change
 \end{enumerate}
 
 
-%TODO weighted number of people who changed a file?
+
 
 \section{Methodology and Data}
 
@@ -190,7 +190,7 @@ mods & 1.00 & 0.65 & 0.85 & 0.30 & 0.26 & 0.23 & 0.26 \\
 {\bf{\emph Q2)Does the weighted sum of change complexity measures up to a version correlated with the traditional complexity measures at that version? }}
 \newline
 
-We measured the last 1000 commits' weighted sum of change complexity measures up to a single version and compared it with the traditional complexity measures of that version. By looking at the results in the following table, we can see that change complexity measures correlated negatively with traditional complexity measures.
+We measured the last 1000 commits' weighted sum of change complexity measures up to a single version and compared it with the traditional complexity measures of that version. By looking at the results in table \ref{tab:table2}, we can see that change complexity measures correlated negatively with traditional complexity measures.
 \newline
 
 \begin{table}[ht]
@@ -237,16 +237,22 @@ mods & 1.00 & 0.66 & 0.86 & 0.23 & 0.23 & 0.21 & 0.23 \\
    \hline
 \end{tabular}}
 \caption {\small Correlation Matrix of Research Question 3.}
-
 \label{tab:table3} 
 \end{table}
 
-From the previous results we have identified that traditional and change complexity measures correlate very poorly. This is due to the nature of how these measurements are extracted and what they concretely measure. For example, change complexity measures are extracted from diffs, revisions and patches as opposed to traditional complexity measures, which are extracted from the source code as a whole \cite{Hindle}. We can therefor explain the poor correlation with the fact that these two complexity metrics measure different things
+From the previous results of each of our research questions, we can see that syntactic complexity metrics don't provide more complexity information than lines of code do. We have also identified that traditional and change complexity measures correlate very poorly. This is due to the nature of how these measurements are extracted and what they concretely measure. For example, change complexity measures are extracted from diffs, revisions and patches as opposed to traditional complexity measures, which are extracted from the source code as a whole \cite{Hindle}. We can therefor explain the poor correlation with the underlying artifacts that these metrics are based on. Therefor, these complexity measures can not be substituted to be used as a proxy for the amount of effort that is needed to comprehend a piece of code. \newline
+A snapshot of the project from it's start date until it's end date is shown in the next figures. The traditional complexity measures is shown in Figure \ref{fig:tct} in isolation, namely Locs, Totcy and Hlen. We can see that they all follow an increasing trend with Hlen and Loc decreasing at the same points in time.\newline
+The change complexity measures (Mods, Hunk dist and Indent Sum) is shown in Figure \ref{fig:cct} also in isolation. They too follow a same trend with respect to each other. Finally, figure \ref{fig:TandCCT} shows the totCy and Hunk dist. In this case, we can see that they follow very different trends. This confirms that these two metrics indeed measure different things.
+
+
+
+
 
 %Traditional Complexity timeseries
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.5\textwidth]{TradComplexityMeasuresPlot}
+  \includegraphics[width=0.5\textwidth]
+  {TradPlot}
    \caption{Traditional Complexity Measures Timeseries }
    \label{fig:tct}
 \end{figure}
@@ -254,7 +260,8 @@ From the previous results we have identified that traditional and change complex
 %Change Complexity timeseries
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.5\textwidth]{ChangeComplexMeasuresPlot}
+  \includegraphics[width=0.5\textwidth]
+  {ChangePlot}
    \caption{Change Complexity Measures Timeseries }
    \label{fig:cct}
 \end{figure}
@@ -267,11 +274,14 @@ From the previous results we have identified that traditional and change complex
    \label{fig:TandCCT}
 \end{figure}
 
-\section{Threats to validity}
+\section{Threats to Validity}
 In our study we calculated the complexity measures on each particular commits (aka. each version), however the correlation between traditional complexity measures in Israel's study \cite{Israel} was done at a file level. Israel also made account of the confounding effect of file size. The result was that even though file size influences the values of the correlations, it does not substantially change the conclusion extracted from those correlations in any case. Therefor, in order to rule out this effect, the total size of the system must be taken into consideration. Another threat to validity is the source of inconsistencies in measuring traditional complexity metrics between header files and non-header files.
 \section{Conclusion}
 
-In this work we have chosen the Apache HTTP Server Open Source Project and extracted data related to traditional and change complexity measures within a 12-year period. We have shown that these two measures correlate poorly because they measure different things in different contexts.
+In this work we have chosen the Apache HTTP Server Open Source Project and extracted data related to traditional and change complexity measures within a 12-year period. For each of our research questions, we have shown that
+traditional complexity measures, in particular those that are exclusively based on the structure of the program or properties of text, do not provide additional information on the amount of effort that's required to fully understand a piece of code. Therefor, lines of code are sufficient to comprehend code fragments. We have also shown that, for each research question, while change complexity measures correlate very strongly with one another, the same result is not the case with traditional complexity measures (in some cases, there is a negative relationship). This is because they measure different things in different contexts and therefor results in a weak relationship between them.
+
+
 
 \section{Future Work}
 Future research directions include using traditional and change complexity metrics as an indication of the maintainability and evolvability of a system; such as productivity and number of bugs.
